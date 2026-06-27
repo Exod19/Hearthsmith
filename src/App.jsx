@@ -1,3 +1,62 @@
+HEARTHSMITH — CODE V1 POUR STACKBLITZ / REACT + VITE
+=========================================================
+
+INSTRUCTIONS RAPIDES
+--------------------
+
+1. Crée un projet StackBlitz : React + Vite.
+2. Remplace le contenu des fichiers suivants dans cet ordre :
+   - package.json
+   - src/main.jsx
+   - src/App.jsx
+   - src/styles.css
+3. Sauvegarde.
+4. Le projet devrait se lancer automatiquement.
+
+=========================================================
+FICHIER 1 — package.json
+=========================================================
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "lucide-react": "latest"
+  },
+  "devDependencies": {}
+}
+```
+
+=========================================================
+FICHIER 2 — src/main.jsx
+=========================================================
+
+```jsx
+import React from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./styles.css";
+
+createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+
+=========================================================
+FICHIER 3 — src/App.jsx
+=========================================================
+
+```jsx
 import React, { useEffect, useMemo, useState } from "react";
 import {
   CalendarDays,
@@ -416,7 +475,7 @@ const seedMenus = [
       Jeudi: { breakfast: "oeufs-toast-sam", lunch: "bol-poulet-riz-crudites", dinner: "tacos-deconstruits", snack: "yogourt-fruits-granola" },
       Vendredi: { breakfast: "smoothie-proteine-fruits", lunch: "wrap-dinde-deconstruit", dinner: "plaque-poulet-legumes", snack: "popcorn-fruit" },
       Samedi: { breakfast: "oeufs-toast-sam", lunch: "bol-poulet-riz-crudites", dinner: "saumon-patates-legumes", snack: "yogourt-fruits-granola" },
-      Dimanche: { breakfast: "smoothie-proteine-fruits", lunch: "wrap-dinde-deconstruit", dinner: "pates-sg-viande-tomate", snack: "popcorn-fruit" }
+      Dimanche: { breakfast: "smoothie-proteine-fruits", lunch: "wrap-dinde-deconstruit", dinner: "pates-sg-viande-tomate", snack: "yogourt-fruits-granola" }
     }
   }
 ];
@@ -1098,3 +1157,651 @@ function getTypeLabel(type) {
 }
 
 export default App;
+```
+
+=========================================================
+FICHIER 4 — src/styles.css
+=========================================================
+
+```css
+:root {
+  --bg: #f5efe4;
+  --panel: #fffaf1;
+  --panel-2: #f0dfc8;
+  --ink: #2b1d14;
+  --muted: #7c6856;
+  --line: rgba(59, 38, 25, 0.15);
+  --brand: #8a4f27;
+  --brand-dark: #4b2b19;
+  --gold: #c69249;
+  --green: #5f7f52;
+  --danger: #9b3a2e;
+  --shadow: 0 16px 45px rgba(45, 26, 13, 0.12);
+  --radius: 22px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(198, 146, 73, 0.28), transparent 32rem),
+    linear-gradient(135deg, #f8f1e6, #efe0cb);
+  color: var(--ink);
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+button,
+.button-like {
+  border: 1px solid var(--line);
+  background: var(--brand-dark);
+  color: #fffaf1;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+button:hover,
+.button-like:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+.button-like input {
+  display: none;
+}
+
+select,
+input {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.7rem 0.8rem;
+  background: #fffdf8;
+  color: var(--ink);
+  width: 100%;
+}
+
+.app {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero {
+  min-height: 260px;
+  background:
+    linear-gradient(135deg, rgba(43, 29, 20, 0.92), rgba(99, 58, 29, 0.88)),
+    url("https://images.unsplash.com/photo-1514986888952-8cd320577b68?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  color: #fff7e8;
+  border-radius: 34px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 5.25rem);
+  line-height: 0.95;
+  margin: 0.4rem 0 1rem;
+  letter-spacing: -0.06em;
+  max-width: 820px;
+}
+
+.hero p {
+  max-width: 680px;
+  color: rgba(255, 247, 232, 0.86);
+  font-size: 1.08rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  max-width: 540px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.eyebrow.small {
+  color: var(--brand);
+  margin: 0 0 0.35rem;
+}
+
+.toolbar {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  background: rgba(255, 250, 241, 0.78);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: end;
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  box-shadow: 0 10px 28px rgba(45, 26, 13, 0.08);
+}
+
+.field {
+  min-width: 280px;
+}
+
+.field label,
+.image-editor label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tabs button {
+  background: #fffdf8;
+  color: var(--ink);
+}
+
+.tabs button.active {
+  background: var(--brand);
+  color: #fffaf1;
+}
+
+.panel {
+  background: rgba(255, 250, 241, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 1.25rem;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.55rem);
+  letter-spacing: -0.04em;
+}
+
+.muted {
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(180px, 1fr));
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+}
+
+.day-card {
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1rem;
+  min-width: 190px;
+}
+
+.day-card h3 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+}
+
+.meal-slot {
+  border-top: 1px solid var(--line);
+  padding-top: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.slot-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 900;
+  margin-bottom: 0.4rem;
+}
+
+.mini-meal {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.mini-meal img {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.mini-meal strong {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.15;
+}
+
+.mini-meal span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.empty {
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 0.7rem;
+}
+
+.meal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.meal-card {
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.meal-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.meal-card-content {
+  padding: 1rem;
+}
+
+.meal-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.type-label {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand);
+  font-weight: 900;
+  font-size: 0.75rem;
+}
+
+.meal-card h3 {
+  margin: 0.25rem 0 0;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+}
+
+.time-pill {
+  background: var(--panel-2);
+  color: var(--brand-dark);
+  border-radius: 999px;
+  padding: 0.45rem 0.7rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.description {
+  color: var(--muted);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.85rem 0;
+}
+
+.badge {
+  background: #f3e2c9;
+  color: var(--brand-dark);
+  border: 1px solid rgba(138, 79, 39, 0.2);
+  border-radius: 999px;
+  padding: 0.32rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+h4 {
+  margin: 1rem 0 0.45rem;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+.adaptations,
+.prep-box {
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+.adaptations p {
+  margin: 0.35rem 0;
+}
+
+.image-editor {
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+.image-editor div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+.search {
+  min-width: 320px;
+  position: relative;
+}
+
+.search svg {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+.search input {
+  padding-left: 2.3rem;
+}
+
+.grocery-layout {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.grocery-category {
+  break-inside: avoid;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.grocery-category h3 {
+  margin: 0 0 0.75rem;
+  color: var(--brand-dark);
+}
+
+.grocery-item {
+  display: flex;
+  gap: 0.7rem;
+  align-items: start;
+  padding: 0.65rem 0;
+  border-top: 1px solid rgba(59, 38, 25, 0.1);
+  cursor: pointer;
+}
+
+.grocery-item input {
+  width: auto;
+  margin-top: 0.15rem;
+}
+
+.grocery-item strong {
+  display: block;
+}
+
+.grocery-item small {
+  color: var(--muted);
+  display: block;
+  margin-top: 0.15rem;
+}
+
+.grocery-item.checked {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+.prep-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.prep-task {
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.task-number {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--brand-dark);
+  color: #fffaf1;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+
+.prep-task h3 {
+  margin: 0;
+}
+
+.prep-task p {
+  margin: 0.35rem 0;
+  color: var(--muted);
+}
+
+@media (max-width: 1100px) {
+  .hero,
+  .toolbar,
+  .section-title {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .week-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .meal-grid,
+  .prep-list {
+    grid-template-columns: 1fr;
+  }
+
+  .grocery-layout {
+    column-count: 1;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .app {
+    max-width: none;
+    padding: 0;
+  }
+
+  .no-print,
+  .toolbar,
+  .hero-actions,
+  .image-editor,
+  select,
+  button {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: auto;
+    box-shadow: none;
+    border-radius: 0;
+    color: #2b1d14;
+    background: white;
+    padding: 0 0 1rem;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p,
+  .eyebrow {
+    color: #555;
+  }
+
+  .panel {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    background: white;
+  }
+
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.35rem;
+    overflow: visible;
+  }
+
+  .day-card {
+    min-width: 0;
+    padding: 0.45rem;
+    border-radius: 8px;
+  }
+
+  .mini-meal img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mini-meal strong {
+    font-size: 0.7rem;
+  }
+
+  .mini-meal span,
+  .slot-label {
+    font-size: 0.62rem;
+  }
+
+  .meal-grid,
+  .prep-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .meal-card,
+  .grocery-category,
+  .prep-task,
+  .day-card {
+    break-inside: avoid;
+  }
+
+  .meal-image {
+    height: 160px;
+  }
+
+  .grocery-layout {
+    column-count: 2;
+  }
+}
+```
+
+=========================================================
+NOTES POUR LES IMAGES
+=========================================================
+
+Tu peux ajouter tes images dans :
+
+/public/meals/
+
+Exemple :
+
+/public/meals/bol-poulet-riz.jpg
+
+Puis, dans l'application, remplace le champ image du repas par :
+
+/meals/bol-poulet-riz.jpg
+
+L'image se mettra à jour partout où le repas est utilisé.
